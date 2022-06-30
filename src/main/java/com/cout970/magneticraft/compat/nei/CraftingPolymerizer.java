@@ -46,7 +46,10 @@ public class CraftingPolymerizer extends TemplateRecipeHandler {
 
     @Override
     public void loadCraftingRecipes(String outputId, Object... results) {
-        super.loadCraftingRecipes(outputId, results);
+        if (outputId.equals(getRecipesID())) {
+            recipes.addAll(MgRecipeRegister.polymerizer.stream().collect(Collectors.toList()));
+        } else super.loadCraftingRecipes(outputId, results);
+
     }
 
     @Override
