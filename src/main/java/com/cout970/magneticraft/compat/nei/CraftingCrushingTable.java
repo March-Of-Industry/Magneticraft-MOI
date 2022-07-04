@@ -63,7 +63,7 @@ public class CraftingCrushingTable extends TemplateRecipeHandler {
 
     @Override
     public int recipiesPerPage() {
-        return 1;
+        return 2;
     }
 
     @Override

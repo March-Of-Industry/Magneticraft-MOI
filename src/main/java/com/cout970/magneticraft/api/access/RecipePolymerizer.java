@@ -11,6 +11,7 @@ public class RecipePolymerizer {
     protected ItemStack output;
     protected double minTemperature;
 
+
     public RecipePolymerizer(FluidStack fluid, ItemStack input, ItemStack output, double minTemperature) {
         this.fluid = fluid;
         this.input = input;
@@ -42,6 +43,7 @@ public class RecipePolymerizer {
         }
         return null;
     }
+
 
     public boolean matches(ItemStack item) {
         return MgUtils.areEqual(item, input, true);
