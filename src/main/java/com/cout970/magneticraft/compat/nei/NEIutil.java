@@ -47,7 +47,7 @@ public class NEIutil
         GuiDraw.drawRect(x+8+w/2  , y+8-h/2  , 1,h, (alpha<<24)+0xffffff);
     }
 
-    public void drawTexturedModelRectFromIcon(int x, int y, IIcon icon, int width, int height) {
+    public static void drawTexturedModelRectFromIcon(int x, int y, IIcon icon, int width, int height) {
         Tessellator tessellator = Tessellator.instance;
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV((double) (x), (double) (y + height), (double) 0, (double) icon.getMinU(), (double) icon.getMaxV());
