@@ -176,7 +176,7 @@ public class CraftingRefinery extends TemplateRecipeHandler {
             NEIutil.drawTexturedModelRectFromIcon(inputTankX+1, fluidOffset-fluidHeight, r.fluidIn.getFluid().getIcon(), fluidWidth, fluidHeight);
             //ClientUtils.drawRepeatedFluidIcon(r.fluid.getFluid(), 31,54-fluidHeight, 18,fluidHeight);
 
-            int fluidHeight2 = tankInsideHeight-fluidHeight;
+            int fluidHeight2 = tankInsideHeight-fluidHeight+7;
             int outFluidY = fluidOffset-fluidHeight2;
             NEIutil.drawTexturedModelRectFromIcon(outputTank1X+1, outFluidY, r.fluidOut0.getFluid().getIcon(), fluidWidth, fluidHeight2);
             NEIutil.drawTexturedModelRectFromIcon(outputTank2X+1, outFluidY, r.fluidOut1.getFluid().getIcon(), fluidWidth, fluidHeight2);

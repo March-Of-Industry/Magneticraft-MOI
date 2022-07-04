@@ -160,7 +160,7 @@ public class CraftingDistillery extends TemplateRecipeHandler {
             NEIutil.drawTexturedModelRectFromIcon(48, 43-fluidHeight, r.fluidIn.getFluid().getIcon(), 18, fluidHeight);
             //ClientUtils.drawRepeatedFluidIcon(r.fluid.getFluid(), 31,54-fluidHeight, 18,fluidHeight);
 
-            int fluidHeight2 = 39-fluidHeight;
+            int fluidHeight2 = 46-fluidHeight;
             NEIutil.drawTexturedModelRectFromIcon(99, 43-fluidHeight2, r.fluidOut.getFluid().getIcon(), 18, fluidHeight2);
 
             //draw the fluid tank on top of the fluid
