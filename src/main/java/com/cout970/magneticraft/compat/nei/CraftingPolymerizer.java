@@ -37,6 +37,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static codechicken.lib.gui.GuiDraw.*;
+import static com.cout970.magneticraft.compat.nei.NEIutil.drawSlot;
+import static com.cout970.magneticraft.compat.nei.NEIutil.stackMatchesObject;
 
 public class CraftingPolymerizer extends TemplateRecipeHandler {
 
@@ -296,42 +298,6 @@ public class CraftingPolymerizer extends TemplateRecipeHandler {
     }
 
 
-    public static boolean stackMatchesObject(ItemStack stack, Object o)
-    {
-        return stackMatchesObject(stack, o, false);
-    }
-    public static boolean stackMatchesObject(ItemStack stack, Object o, boolean checkNBT)
-    {
-        if(o instanceof ItemStack)
-            return OreDictionary.itemMatches((ItemStack)o, stack, false) && (!checkNBT || ((ItemStack)o).getItemDamage()==OreDictionary.WILDCARD_VALUE || ItemStack.areItemStackTagsEqual((ItemStack)o, stack));
-        else if(o instanceof ArrayList)
-        {
-            for(Object io : (ArrayList)o)
-                if(io instanceof ItemStack && OreDictionary.itemMatches((ItemStack)io, stack, false) && (!checkNBT || ((ItemStack)io).getItemDamage()==OreDictionary.WILDCARD_VALUE || ItemStack.areItemStackTagsEqual((ItemStack)io, stack)))
-                    return true;
-        }
-        else if(o instanceof ItemStack[])
-        {
-            for(ItemStack io : (ItemStack[])o)
-                if(OreDictionary.itemMatches(io, stack, false) && (!checkNBT || io.getItemDamage()== OreDictionary.WILDCARD_VALUE || ItemStack.areItemStackTagsEqual(io, stack)))
-                    return true;
-        }
-
-        return false;
-    }
-
-    public static void drawSlot(int x, int y, int w, int h)
-    {
-        drawSlot(x,y, w,h, 0xff);
-    }
-    public static void drawSlot(int x, int y, int w, int h, int alpha)
-    {
-        GuiDraw.drawRect(x+8-w/2  , y+8-h/2-1, w,1, (alpha<<24)+0x373737);
-        GuiDraw.drawRect(x+8-w/2-1, y+8-h/2-1, 1,h+1, (alpha<<24)+0x373737);
-        GuiDraw.drawRect(x+8-w/2  , y+8-h/2  , w,h, (alpha<<24)+0x8b8b8b);
-        GuiDraw.drawRect(x+8-w/2  , y+8+h/2  , w+1,1, (alpha<<24)+0xffffff);
-        GuiDraw.drawRect(x+8+w/2  , y+8-h/2  , 1,h, (alpha<<24)+0xffffff);
-    }
 
 
 
