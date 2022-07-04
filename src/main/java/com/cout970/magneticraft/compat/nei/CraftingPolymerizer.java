@@ -1,5 +1,6 @@
 package com.cout970.magneticraft.compat.nei;
 
+//import blusunrize.immersiveengineering.client.ClientUtils;
 import blusunrize.immersiveengineering.client.ClientUtils;
 import buildcraft.api.core.Position;
 import codechicken.lib.gui.GuiDraw;
@@ -159,7 +160,7 @@ public class CraftingPolymerizer extends TemplateRecipeHandler {
         int scale = Math.min(44, (int) (rec.getTemperature() * 44f / 1400f));
         RenderUtil.drawTexturedModalRectScaled(15, 9 + (44 - scale), 0, 44 - scale, 6, scale, 12, 45);
     }
-
+    */
     public void drawTexturedModelRectFromIcon(int p_94065_1_, int p_94065_2_, IIcon p_94065_3_, int p_94065_4_, int p_94065_5_) {
         Tessellator tessellator = Tessellator.instance;
         tessellator.startDrawingQuads();
@@ -169,7 +170,7 @@ public class CraftingPolymerizer extends TemplateRecipeHandler {
         tessellator.addVertexWithUV((double) (p_94065_1_), (double) (p_94065_2_), (double) 0, (double) p_94065_3_.getMinU(), (double) p_94065_3_.getMinV());
         tessellator.draw();
     }
-     */
+
 
     @Override
     public void drawBackground(int recipe)
@@ -193,7 +194,9 @@ public class CraftingPolymerizer extends TemplateRecipeHandler {
             int timer = 30;
             int step = cycleticks%(timer*7)/timer;
             int fluidHeight = 39-(step*7)-(step>0?1:0);
-            ClientUtils.drawRepeatedFluidIcon(r.fluid.getFluid(), 31,54-fluidHeight, 18,fluidHeight);
+            RenderUtil.bindTexture(TextureMap.locationBlocksTexture);
+            drawTexturedModelRectFromIcon(31, 54-fluidHeight, r.fluid.getFluid().getIcon(), 18, fluidHeight);
+            //ClientUtils.drawRepeatedFluidIcon(r.fluid.getFluid(), 31,54-fluidHeight, 18,fluidHeight);
 
             //draw the fluid tank on top of the fluid
             changeTexture(tank);
@@ -329,5 +332,7 @@ public class CraftingPolymerizer extends TemplateRecipeHandler {
         GuiDraw.drawRect(x+8-w/2  , y+8+h/2  , w+1,1, (alpha<<24)+0xffffff);
         GuiDraw.drawRect(x+8+w/2  , y+8-h/2  , 1,h, (alpha<<24)+0xffffff);
     }
+
+
 
 }
