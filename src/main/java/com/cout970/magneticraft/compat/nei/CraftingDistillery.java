@@ -72,7 +72,7 @@ public class CraftingDistillery extends TemplateRecipeHandler {
     @Override
     public void loadTransferRects() {
 
-        transferRects.add(new RecipeTransferRect(new Rectangle(78, 26, 24, 15), getOverlayIdentifier()));
+        transferRects.add(new RecipeTransferRect(new Rectangle(73, 16, 24, 15), getOverlayIdentifier()));
     }
 
     @Override
@@ -154,15 +154,13 @@ public class CraftingDistillery extends TemplateRecipeHandler {
 
             //Draw the fluid on the gui
             int timer = 30;
-            int step = cycleticks%(timer*7)/timer;
-            int fluidHeight = 39-(step*7)-(step>0?1:0);
+            int step = cycleticks%(timer*6)/timer;
+            int fluidHeight = 39-(step*6)-(step>0?1:0);
             RenderUtil.bindTexture(TextureMap.locationBlocksTexture);
             NEIutil.drawTexturedModelRectFromIcon(48, 43-fluidHeight, r.fluidIn.getFluid().getIcon(), 18, fluidHeight);
             //ClientUtils.drawRepeatedFluidIcon(r.fluid.getFluid(), 31,54-fluidHeight, 18,fluidHeight);
 
-            int timer2 = 30;
-            int step2 = cycleticks%(timer2*7)/timer2;
-            int fluidHeight2 = 39-(step2*7)-(step2>0?1:0);
+            int fluidHeight2 = 39-fluidHeight;
             NEIutil.drawTexturedModelRectFromIcon(99, 43-fluidHeight2, r.fluidOut.getFluid().getIcon(), 18, fluidHeight2);
 
             //draw the fluid tank on top of the fluid
